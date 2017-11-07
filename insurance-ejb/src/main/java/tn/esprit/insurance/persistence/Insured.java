@@ -16,7 +16,49 @@ public class Insured implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int IdInsured;
 	
+	private String firstName;
+	private String lastName;
+	
 	@OneToMany(mappedBy="insured")
 	private List<Police> polices;
+
+	public Insured() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getIdInsured() {
+		return IdInsured;
+	}
+
+	public void setIdInsured(int idInsured) {
+		IdInsured = idInsured;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public List<Police> getPolices() {
+		return polices;
+	}
+
+	public void setPolices(List<Police> polices) {
+		this.polices = polices;
+	}
+	
+	
 
 }

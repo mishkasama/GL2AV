@@ -18,10 +18,15 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-		</dependency>
+		</dependency> -->
+		
+
+
+
+		
 		<dependency>
 			<groupId>tn.esprit</groupId>
 			<artifactId>insurance-ejb</artifactId>

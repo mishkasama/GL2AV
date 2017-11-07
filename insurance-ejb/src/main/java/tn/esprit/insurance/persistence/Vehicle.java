@@ -16,7 +16,40 @@ public class Vehicle implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int IdVehicle;
 	
+	private String registration;
+	
 	@OneToMany(mappedBy="vehicle")
 	private List<Police> polices;
+
+	public Vehicle() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getIdVehicle() {
+		return IdVehicle;
+	}
+
+	public void setIdVehicle(int idVehicle) {
+		IdVehicle = idVehicle;
+	}
+
+	public String getRegistration() {
+		return registration;
+	}
+
+	public void setRegistration(String registration) {
+		this.registration = registration;
+	}
+
+	public List<Police> getPolices() {
+		return polices;
+	}
+
+	public void setPolices(List<Police> polices) {
+		this.polices = polices;
+	}
+	
+	
 
 }
