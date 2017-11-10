@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
+import tn.esprit.insurance.persistence.Insured;
 import tn.esprit.insurance.persistence.Police;
 import tn.esprit.insurance.persistence.TypeContract;
 
@@ -21,6 +22,7 @@ public interface PoliceServiceRemote {
 	public TypeContract getTypeContractById(int typeContractId);
 	public List<Police> getAllContract();
 	public List<TypeContract> getAllTypeContract();
+	public List<Insured> getAllInsured();
 	
 
 }

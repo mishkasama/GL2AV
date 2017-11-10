@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
+import tn.esprit.insurance.persistence.Insured;
 import tn.esprit.insurance.persistence.Police;
 import tn.esprit.insurance.persistence.TypeContract;
 
@@ -89,6 +92,19 @@ public class PoliceService implements PoliceServiceRemote{
 	public List<TypeContract> getAllTypeContract() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Insured> getAllInsured() {
+		// TODO Auto-generated method stub
+		TypedQuery<Insured> query = em.createQuery("Select e from Insured e", Insured.class);
+		List<Insured> listInsured = null;
+		try{
+			listInsured = query.getResultList();
+		}catch(NoResultException e){
+			//Logger.info("Aucun employe trouvé pour cet email: "+email);
+		}
+		return listInsured;
 	}
 
 }

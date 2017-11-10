@@ -27,6 +27,12 @@ public class Insured implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+	public Insured(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 	public int getIdInsured() {
 		return IdInsured;
 	}

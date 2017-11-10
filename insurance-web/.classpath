@@ -23,5 +23,11 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/aboud/Desktop/meriem/PFE/Finale/Attijari_Datacenter/bin/WebContent/WEB-INF/lib/com.sun.mail_1.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aboud/Desktop/meriem/PFE/Finale/Attijari_Datacenter/bin/WebContent/WEB-INF/lib/commons-io.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aboud/Desktop/meriem/PFE/Finale/Attijari_Datacenter/bin/WebContent/WEB-INF/lib/DigitalSigner.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aboud/Desktop/meriem/PFE/Finale/Attijari_Datacenter/bin/WebContent/WEB-INF/lib/junit-4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aboud/Desktop/meriem/PFE/Finale/Attijari_Datacenter/bin/WebContent/WEB-INF/lib/primefaces-3.5.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aboud/Desktop/meriem/PFE/Finale/Attijari_Datacenter/bin/WebContent/WEB-INF/lib/xercesImpl.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -3,7 +3,7 @@
 	<persistence-unit name="insurance-ejb">
 		<jta-data-source>java:/INSURANCE_DS</jta-data-source>
 		<properties>
-			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
 	</persistence-unit>
 </persistence>
