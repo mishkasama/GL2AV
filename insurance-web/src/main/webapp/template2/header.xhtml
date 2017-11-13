@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition>
+
+	<!-- BEGIN TOP NAVIGATION -->
+	<nav class="navbar-top" role="navigation"> <!-- BEGIN BRAND HEADING -->
+	<div class="navbar-header">
+	<p:clock pattern="HH:mm:ss" />
+		<button type="button" class="navbar-toggle pull-right"
+			data-toggle="collapse" data-target=".top-collapse">
+			<i class="fa fa-bars"></i>
+		</button>
+		<div class="navbar-brand">
+			<a href="index.html"> 
+			</a>
+		</div>
+	</div>
+	<!-- END BRAND HEADING -->
+	<div class="nav-top">
+		<!-- BEGIN RIGHT SIDE DROPDOWN BUTTONS -->
+		<ul class="nav navbar-right">
+
+
+			<li class="dropdown user-box"><a href="#{request.contextPath}/Pages/Agent/All/ProfilAgent.jsf"
+				>  <p:graphicImage id="personne_image" value="#{personneImageBean.image}" cache="false" styleClass="editor-picture" height="80"
+										width="80">
+										  <f:param name="id" value="#{authBean.user.id}" />
+						</p:graphicImage><span
+					class="user-info">#{authBean.user.lastName} #{authBean.user.firstName}</span> <b class="caret"></b>
+			</a>
+				<ul class="dropdown-menu dropdown-user">
+					<li><a href="#{request.contextPath}/admin/Users/ProfilAdmin.jsf"> <i class="fa fa-user"></i> My
+							Profile
+					</a></li>
+			
+					<li><a href="#{request.contextPath}/admin/loginAdmin.jsf"> <i class="fa fa-power-off"></i>
+							Logout
+					</a></li>
+				</ul></li>
+			<!--Search Box-->
+		
+			<!--Search Box-->
+		</ul>
+		<!-- END RIGHT SIDE DROPDOWN BUTTONS -->
+
+		<!-- BEGIN TOP MENU -->
+
+		<!-- END TOP MENU -->
+
+	</div>
+	<!-- /.nav-top --> </nav>
+	<!-- /.navbar-top -->
+	<!-- END TOP NAVIGATION -->
+
+</ui:composition>
+
+</html>

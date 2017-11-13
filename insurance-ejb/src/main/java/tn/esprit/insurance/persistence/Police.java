@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @Entity
@@ -16,11 +18,15 @@ public class Police implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int numPolice;
-	
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
+	@Temporal(TemporalType.DATE)
 	private Date endDate;
+	@Temporal(TemporalType.DATE)
+	private Date dateCreation;
 	private float price;
-	private int points;
+	private int classe;
+	private boolean state;
 	
 	@OneToOne
 	private Insured insured;
@@ -35,13 +41,22 @@ public class Police implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
-	public Police(Date startDate, Date endDate, float price, int points) {
+	public Police(int numPolice, boolean state) {
+		super();
+		this.numPolice = numPolice;
+		this.state = state;
+	}
+
+
+	public Police(Date startDate, Date endDate, Date dateCreation, float price, int classe) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.price = price;
-		this.points = points;
+		this.classe = classe;
+		this.state = true;
 	}
 
 	public int getNumPolice() {
@@ -76,12 +91,12 @@ public class Police implements Serializable{
 		this.price = price;
 	}
 
-	public int getPoints() {
-		return points;
+	public int getclasse() {
+		return classe;
 	}
 
-	public void setPoints(int points) {
-		this.points = points;
+	public void setclasse(int classe) {
+		this.classe = classe;
 	}
 
 	public Insured getInsured() {
@@ -106,6 +121,24 @@ public class Police implements Serializable{
 
 	public void setTypeContrat(TypeContract typeContrat) {
 		this.typeContrat = typeContrat;
+	}
+
+	public boolean isState() {
+		return state;
+	}
+
+	public void setState(boolean state) {
+		this.state = state;
+	}
+
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 	
 	

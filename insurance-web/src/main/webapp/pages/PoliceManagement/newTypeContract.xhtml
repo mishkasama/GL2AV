@@ -1,0 +1,104 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template2/main.xhtml">
+	<ui:define name="pageContent">
+		<h:form id="formTypeContract">
+			<p:growl id="growl" life="2000" />
+			<p:commandButton icon="ui-icon-circle-plus" actionListener="#{typeContractBean.initAddTypeContract}"
+				value="New InsuranceProducts" oncomplete="PF('placeDialog').show()" id="ajax" update="growl" />
+
+			<p:dataTable id="listType"   var="typeContract" value="#{typeContractBean.listTypeContract}" currentPageReportTemplate="({currentPage} sur {totalPages})"
+						paginator="true" rows="5" emptyMessage="Pas d'Armoire !" resizableColumns="true"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
+				<f:facet name="header">
+					<h:outputText value="Manage InsurranceProducts" />
+				</f:facet>
+				<p:column headerText="Name" filterBy="#{typeContract.name}" filterMatchMode="contains">
+					<h:outputText value="#{typeContract.name}" />
+				</p:column>
+				<p:column headerText="Price per Semester" filterBy="#{typeContract.pricePerSemester}" filterMatchMode="contains">
+					<h:outputText value="#{typeContract.pricePerSemester}" />
+				</p:column>
+				<p:column headerText="Price per Semester" filterBy="#{typeContract.pricePerSemester}" filterMatchMode="contains">
+					<h:outputText value="#{typeContract.pricePerYear}" />
+				</p:column>
+				<p:column style="text-align:center;width:8%">
+				<p:growl id="message" showDetail="true" />
+					<p:commandButton style="width:20px;height: 20px;" icon="ui-icon-pencil" title="Edit Type COntract" oncomplete="PF('placeDialogEdit').show()" actionListener="#{typeContractBean.recupererModifId(typeContract)}" update=":formTypeContract">
+						
+					</p:commandButton>
+				
+				
+				<p:commandButton style="width:20px;height: 20px;" icon="ui-icon-trash" title="Delete type contract"  actionListener="#{typeContractBean.recupererId(typeContract)}" update=":formTypeContract:listType" >
+			        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+			        <f:setPropertyActionListener value="#{typeContract}" target="#{typeContractBean.selectedTypeContract}"/>
+			    </p:commandButton>
+				</p:column>
+				
+				
+			</p:dataTable>
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		        <p:commandButton value="Yes" actionListener="#{typeContractBean.deleteTypeContract()}" update="" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		    </p:confirmDialog>
+			</h:form>
+			<h:form id="formAddTypeContract">
+
+			<p:dialog header="Add New Type Contract" widgetVar="placeDialog" modal="true" showEffect="explode" hideEffect="explode">
+				<h:panelGrid columns="2">
+					<h:outputText value="Name :    " />
+					<p:inputText value="#{typeContractBean.typeContract.name}" />
+					<h:outputText value="Description :    " />
+					<p:inputTextarea rows="10" cols="50" value="#{typeContractBean.typeContract.description}" queryDelay="750" minQueryLength="4" />
+				</h:panelGrid>
+				<br />
+				<h:panelGrid columns="2">
+					<h:outputText value="Price per semester :    " />
+					<p:inputNumber id="inputPricePerSemester" value="#{typeContractBean.typeContract.pricePerSemester}" />
+					<h:outputText value="Price per semester :    " />
+					<p:inputNumber id="inputPricePerYear" value="#{typeContractBean.typeContract.pricePerYear}" />
+				</h:panelGrid>
+				<br />
+				<p:commandButton value="Save"
+					actionListener="#{typeContractBean.addTypeContract()}"
+					styleClass="ui-priority-primary"
+					oncomplete="PF('placeDialog').hide()" update=":formTypeContract:listType" />
+			</p:dialog>
+			</h:form>
+			<h:form id="formEditTypeContract">
+			<p:dialog header="Edit Type Contract" widgetVar="placeDialogEdit" minHeight="40">
+			
+				<h:panelGrid columns="2">
+					<h:outputText value="Name :    " />
+					<h:outputText value="#{typeContractBean.name}" />
+					<h:outputText value="Description :    " />
+					<p:inputTextarea rows="10" cols="50" value="#{typeContractBean.description}" queryDelay="750" minQueryLength="4" />
+				</h:panelGrid>
+				<br />
+				<h:panelGrid columns="2">
+					<h:outputText value="Price per semester :    " />
+					<p:inputNumber id="inputPricePerSemester" value="#{typeContractBean.pricePerSemester}" />
+					<h:outputText value="Price per semester :    " />
+					<p:inputNumber id="inputPricePerYear" value="#{typeContractBean.pricePerYear}" />
+				</h:panelGrid>
+				<br />
+
+				<p:commandButton value="Save" actionListener="#{typeContractBean.addTypeContract()}" styleClass="ui-priority-primary" oncomplete="PF('placeDialog').hide()" update=":formTypeContract:listType" />
+			</p:dialog>
+
+			
+
+		</h:form>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&amp;apId=516741378384565&amp;version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	</ui:define>
+</ui:composition>

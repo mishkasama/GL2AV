@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+
+	<!-- BEGIN SIDE NAVIGATION -->
+	<nav class="navbar-side" role="navigation">
+	<div class="navbar-collapse sidebar-collapse collapse">
+
+		<img id="si"
+			src="#{request.contextPath}/resources/css/images/p.jpg"
+			alt="" />
+
+
+		<ul id="side" class="nav navbar-nav side-nav">
+			<!-- BEGIN SIDE NAV MENU -->
+			<!-- Navigation category -->
+			<li>
+				<h4>Navigation</h4>
+			</li>
+			<!-- END Navigation category -->
+			 <li >
+          <a href="listContract.xhtml">Contracts</a>
+          <ul >
+            <li>
+              <a href="newContract.xhtml">New Contract</a>
+            </li>
+            <li>
+              <a href="newTypeContract.xhtml">New type contract</a>
+            </li>
+          </ul>
+        </li>
+	
+
+
+
+				<li><a href="#{request.contextPath}/pages/Product/manageProducts.jsf">
+					<i class="fa fa-list"></i> Manage Product
+			</a></li>
+			
+				
+			<li><a
+				href="#{request.contextPath}/pages/Product/Feedback.jsf">
+					<i class="fa fa-list"></i> All Product
+			</a></li>
+
+
+	<li><a
+				href="#{request.contextPath}/pages/Product/Stat.jsf">
+					<i class="fa fa-list"></i> Stat
+			</a></li>
+
+
+
+			<!-- BEGIN COMPONENTS DROPDOWN -->
+
+			<!-- END COMPONENTS DROPDOWN -->
+
+			<!-- BEGIN FORMS DROPDOWN -->
+
+
+			<!-- END FORMS DROPDOWN -->
+
+			<!-- BEGIN CHARTS DROPDOWN -->
+
+			<!-- END CHARTS DROPDOWN -->
+
+			<!-- Navigation category -->
+
+			<!-- END Navigation category -->
+
+			<!-- BEGIN PAGES DROPDOWN -->
+
+			<!-- END PAGES DROPDOWN -->
+			<!-- BEGIN MORE PAGES DROPDOWN -->
+
+			<!-- END MORE PAGES DROPDOWN -->
+			<br></br>
+			<br></br>
+			<br></br>
+			<li>
+				<form id="f">
+					<a><p:commandLink value="Logout .."
+							action="#{authBean.logout()}"></p:commandLink></a>
+				</form>
+			</li>
+		</ul>
+
+
+		<!-- /.side-nav -->
+
+
+
+
+
+	</div>
+	<!-- /.navbar-collapse --> </nav>
+	<!-- /.navbar-side -->
+	<!-- END SIDE NAVIGATION -->
+
+</ui:composition>
+</html>

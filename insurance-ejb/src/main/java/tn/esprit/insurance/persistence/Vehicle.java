@@ -17,6 +17,7 @@ public class Vehicle implements Serializable{
 	private int IdVehicle;
 	
 	private String registration;
+	private String marque;
 	
 	@OneToMany(mappedBy="vehicle")
 	private List<Police> polices;
@@ -25,6 +26,16 @@ public class Vehicle implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
+	public Vehicle(String registration, String marque) {
+		super();
+		this.registration = registration;
+		this.marque = marque;
+	}
+
+
 
 	public int getIdVehicle() {
 		return IdVehicle;

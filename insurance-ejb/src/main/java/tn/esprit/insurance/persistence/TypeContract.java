@@ -15,14 +15,16 @@ public class TypeContract implements Serializable{
 	private int IdTypeContrat;
 	
 	private String name;
+	private String description;
 	private float pricePerSemester;
 	private float pricePerYear;
 	public TypeContract() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TypeContract(String name, float pricePerSemester, float pricePerYear) {
+	public TypeContract(String name, float pricePerSemester, float pricePerYear, String description) {
 		super();
+		this.description = description;
 		this.name = name;
 		this.pricePerSemester = pricePerSemester;
 		this.pricePerYear = pricePerYear;
@@ -50,6 +52,12 @@ public class TypeContract implements Serializable{
 	}
 	public void setPricePerYear(float pricePerYear) {
 		this.pricePerYear = pricePerYear;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

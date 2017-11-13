@@ -1,0 +1,92 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template2/main.xhtml">
+	<ui:define name="pageContent">
+<h:form id="form">	
+<p:panel header="Gestion des Armoires">
+<p:dataTable id="tableListContract" var="contract" value="#{policeBean.listContract}" reflow="true" rows="5" paginator="true"
+          resizableColumns="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
+    <p:column headerText="N° Contract">
+        <h:outputText value="#{contract.numPolice}" />
+    </p:column>
+ 
+    <p:column headerText="Insured">
+        <h:outputText value="#{contract.insured.lastName} #{contract.insured.firstName}" />
+    </p:column>
+ 
+    <p:column headerText="Start Date">
+        <h:outputText value="#{contract.startDate}" />
+    </p:column>
+ 
+    <p:column headerText="End Date">
+        <h:outputText value="#{contract.endDate}" />
+    </p:column>
+     <p:column headerText="state">
+
+	<h:outputText value="#{contract.state == true ? 'Enabled' : 'Canceled'}" />
+</p:column>
+    
+    <p:column style="text-align:center;width:8%">
+		 
+		 <p:growl id="message" showDetail="true" />
+ 
+    <p:commandButton actionListener="#{policeBean.modifierState(contract)}" style="width:20px;height: 20px;" icon="ui-icon-circle-minus" title="Cancel contract"   update="tableListContract">
+        
+         <f:setPropertyActionListener value="#{contract}" target="#{policeBean.police}"/>
+    </p:commandButton>
+		 
+
+	     
+	     <p:commandButton  style="width:20px;height: 20px;" icon="ui-icon-pencil" title="Modifier les coordonnées d'un Armoire" oncomplete="editArmoireDial.show()" update="" > 
+	        <f:setPropertyActionListener value="#{contract}" target="#{policeBean.contract}"/>
+	     </p:commandButton>
+	     
+			
+	</p:column>
+    
+</p:dataTable>
+</p:panel>
+
+
+
+ 
+    
+    
+    <p:dialog header="Contract Detail" widgetVar="placeDialog" modal="true">
+				<p:outputPanel id="placeDetail" style="text-align:center;">
+
+					<h:panelGrid columns="2" cellpadding="2">
+
+
+
+						<h:outputLabel  value=" title :" />
+						<h:outputText id="PlaceName"
+							value="#{productsBean.selectedpro.title}" />
+
+						<h:outputLabel  value="Type : " />
+						<h:outputText id="Test"
+							value="#{productsBean.selectedpro.text}" />
+			<h:outputLabel value="" />
+			
+
+      
+   
+    <h:outputLabel value="" /> 
+							
+							        
+			</h:panelGrid>
+				
+		</p:outputPanel>
+							
+			</p:dialog>
+
+
+
+
+</h:form>
+
+	</ui:define>
+</ui:composition>
